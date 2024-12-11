@@ -1,0 +1,76 @@
+/* General Page Styles */
+.homepage {
+    font-family: "Arial", sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #333;
+  }
+  
+  /* .homepage-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 20px;
+  } */
+  
+  /* Post Grid */
+  .post-grid {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  /* Post Card */
+  .post-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Post Image */
+  .post-img {
+    width: 300px; 
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Post Caption */
+  .post-capt {
+    /* padding: 15px; */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* No Posts Message */
+  .no-posts-message {
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+  }
+  
+  /* Link Styling */
+  .post-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .post-descript{
+    font-size: 13px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,104 @@
+/* General Styles */
+.view-post-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-title {
+    text-align: center;
+    color:#006666;
+    margin-bottom: 20px;
+  }
+  
+  .post-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Image Styles */
+  .post-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .post-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Information Section */
+  .post-info {
+    text-align: center;
+    flex: 2;
+    color: #151010;
+  }
+  
+  .post-caption {
+    font-size: 1.5rem;
+    color: #194e4e;
+    margin-bottom: 10px;
+  }
+  
+  .post-description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .post-date-time {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Actions */
+  .post-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button {
+    background-color: #006666;
+  }
+  
+  .edit-button:hover {
+    background-color: #006666;
+  }
+  
+  .delete-button {
+    background-color: #319191;
+  }
+  
+  .delete-button:hover {
+    background-color: #319191;
+  }
+  
+  /* Loading State */
+  .loading {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555;
+  }
+  

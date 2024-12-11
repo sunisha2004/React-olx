@@ -10,6 +10,7 @@ const Register = () => {
     email: "",
     password: "",
     confirmpass: "",
+    phone:"",
     
   });
 //   const [previewImage, setPreviewImage] = useState(null);
@@ -85,6 +86,17 @@ const Register = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Phone</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your Contact number"
               required
             />
           </div>

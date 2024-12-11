@@ -51,29 +51,59 @@ const Profile = () => {
     getPosts()
   }, []);
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    if (!token) {
-      navigate("/login");
-    } else {
-      try {
-        const res = await axios.delete("http://localhost:3002/api/deleteData", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.status === 200) {
-          alert(res.data.msg);
-          localStorage.removeItem("token");
-          navigate("/login");
-        } else {
-          navigate("/login");
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   if (!token) {
+  //     navigate("/login");
+  //   } else {
+  //     try {
+  //       const res = await axios.delete("http://localhost:3002/api/deleteData", {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       });
+  //       if (res.status === 200) {
+  //         alert(res.data.msg);
+  //         localStorage.removeItem("token");
+  //         navigate("/login");
+  //       } else {
+  //         navigate("/login");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //       location.reload();
+  //       navigate("/login");
+  //     }
+  //   }
+  // };
+
+  const handleClick=async(e)=>{
+    e.preventDefault()
+    if(!token){
+      navigate("/login")
+    }
+    else{
+      try{
+        const res= await axios.delete("http://localhost:3002/api/deleteData",{
+          headers: { Authorization: `Bearer ${token}`},
+        })
+        if(res.status === 200){
+          alert(res.data.msg)
+          localStorage.removeItem("token")
+          navigate('/login')
+          location.reload()
         }
-      } catch (error) {
+        else{
+          navigate('/login')
+        }
+      }
+      catch(error){
         console.error(error);
-        location.reload();
-        navigate("/login");
+        location.reload()
+        navigate("/login")
+        
       }
     }
-  };
+
+  }
 
   const sellButton=()=>[
     navigate('/sell')
@@ -116,7 +146,7 @@ const Profile = () => {
       </div>
       <div className="right-side">
         
-          <button className="sell-btn" onClick={sellButton}>Sell</button>
+          <button className="sell-btn" onClick={sellButton}>Sell Product</button>
         
         {posts.length === 0 ? (
           <div>No post added</div>
@@ -130,6 +160,8 @@ const Profile = () => {
                 alt="First Post"
                 className="post-image"
               />
+              <div className="title">{post.title}</div>
+              
               </Link>
               </div>
               ))}

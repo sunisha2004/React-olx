@@ -151,7 +151,7 @@ export async function editUserData(req, res) {
 export async function deleteUser(req, res) {
   try {
     await userDataSchema.deleteOne({userId:req.user.UserID})
-    await postSchema.delete({userId:req.user.UserID})
+    await postSchema.deleteMany({userId:req.user.UserID})
     await userSchema.deleteOne({ _id: req.user.UserID })
     res.status(200).send({ msg: "Data deleted successfully!"})
   } catch (error) {
@@ -187,5 +187,59 @@ export async function getPosts(req, res) {
   } catch (error) {
     console.error(error);
     res.status(500).send({ msg: "Failed to fetch posts. Please try again." });
+  }
+}
+
+export async function getPost(req, res) {
+
+  try {
+    console.log(req.params.id);
+    
+    const post = await postSchema.findOne({_id: req.params.id});
+    // console.log(_id);
+    console.log(post);
+    
+    
+    
+    res.status(200).send({ post });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ msg: "Failed to fetch post. Try again later." });
+  }
+}
+
+export async function getAllPosts(req, res) {
+  try {
+    const posts = await postSchema.find();
+    res.status(200).send({ data: posts });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ msg: "Failed to fetch posts. Please try again." });
+  }
+}
+
+export async function updatePost(req,res) {
+  // console.log(req.user.UserID);
+  // console.log(req.body);
+  const currentDate = new Date();
+  const date = currentDate.toLocaleDateString();
+  const time = currentDate.toLocaleTimeString();
+
+  const {title,category,images,description,price}=req.body
+  await postSchema.updateOne({_id:req.params.id},{$set:{userId:req.user.UserID,title,category,images,description,price,date,time}}).then(()=>{
+      res.status(201).send({msg:"updated"})
+  }).catch((error)=>{
+      res.status(500).send({error:error})  
+  })  
+}
+
+
+export async function deletePost(req, res) {
+  try {
+    const post = await postSchema.deleteOne({_id: req.params.id});
+    res.status(200).send({ msg: "Post deleted successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ msg: "Failed to delete post. Try again later." });
   }
 }

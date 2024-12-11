@@ -70,7 +70,7 @@ const Login = () => {
         <div className="footer-login">
           <p>
             Don't have an account?{" "}
-            <span onClick={() => navigate("/register")}>Sign Up</span>
+            <span onClick={() => navigate("/verify")}>Sign Up</span>
           </p>
         </div>
       </div>

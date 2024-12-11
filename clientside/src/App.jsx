@@ -9,6 +9,9 @@ import AddUserData from './components/AddUserData';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EditUserData from './components/EditUserData';
 import Sell from './components/Sell';
+import ViewUserPost from './components/ViewUserPost';
+import ViewPost from './components/ViewPost'
+import EditPost from './components/EditPost';
 
 function App() {
   const [user, setUser] = useState("");
@@ -27,6 +30,9 @@ function App() {
           <Route path="/addUserData" element={<AddUserData />} />
           <Route path='/editUserData' element={<EditUserData/>} />
           <Route path='/sell' element={<Sell/>} />
+          <Route path='/viewUserPost/:id' element={<ViewUserPost/>} />
+          <Route path='/viewPost/:id' element={<ViewPost/>} />
+          <Route path='/editPost/:id' element={<EditPost/>} />
 
 
 
