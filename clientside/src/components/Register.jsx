@@ -37,8 +37,8 @@ const Register = () => {
     try {
       const res = await axios.post("http://localhost:3002/api/register", formData);
       if (res.status === 200) {
-        alert(res.data.msg);
-        navigate("/login");
+        alert(res.data.msg)
+        navigate("/login")
       } else {
         alert(res.data.msg);
       }
