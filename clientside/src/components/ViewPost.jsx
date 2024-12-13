@@ -65,6 +65,8 @@ const ViewUserPost = () => {
         <div className="post-info">
           <h3 className="post-caption">{post.caption}</h3>
           <p className="post-description">{post.description}</p>
+          <p className="post-price">Price:{post.price}</p>
+          <br />
           <p className="post-date-time">
             <strong>Date:</strong> {post.date} <br />
             <strong>Time:</strong> {post.time}

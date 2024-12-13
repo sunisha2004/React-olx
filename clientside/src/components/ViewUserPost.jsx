@@ -28,6 +28,8 @@ const ViewUserPost = () => {
 
   const deletePost = async () => {
     try {
+      const confirmDelete= window.confirm("confirm Delete?")
+      if(!confirmDelete)return
       const res = await axios.delete(`http://localhost:3002/api/deletePost/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });

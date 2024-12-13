@@ -1,6 +1,7 @@
 import userSchema from './model/usermodel.js'
 import userDataSchema from './model/userData.model.js'
 import postSchema from './model/post.model.js'
+import enqSchema from './model/enquirymodel.js'
 import nodemailer from 'nodemailer'
 import bcrypt from 'bcrypt'
 import pkg from 'jsonwebtoken'
@@ -241,5 +242,16 @@ export async function deletePost(req, res) {
   } catch (error) {
     console.error(error);
     res.status(500).send({ msg: "Failed to delete post. Try again later." });
+  }
+}
+
+export async function enqPost(req, res) {
+  try {
+    const {sellerId,description,productId,negprice}=req.body
+    const post = await postSchema.create({buyerId: req.user.UserID, sellerId, description, productId, negprice });
+    res.status(201).send({ msg: "Enquiry send successfully!", data: post })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send({ msg: "Failed to send message. Please try again." })
   }
 }

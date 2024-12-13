@@ -51,32 +51,12 @@ const Profile = () => {
     getPosts()
   }, []);
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   if (!token) {
-  //     navigate("/login");
-  //   } else {
-  //     try {
-  //       const res = await axios.delete("http://localhost:3002/api/deleteData", {
-  //         headers: { Authorization: `Bearer ${token}` },
-  //       });
-  //       if (res.status === 200) {
-  //         alert(res.data.msg);
-  //         localStorage.removeItem("token");
-  //         navigate("/login");
-  //       } else {
-  //         navigate("/login");
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //       location.reload();
-  //       navigate("/login");
-  //     }
-  //   }
-  // };
+  
 
   const handleClick=async(e)=>{
     e.preventDefault()
+    const confirmDelete= window.confirm("confirm Delete?")
+    if(!confirmDelete)return
     if(!token){
       navigate("/login")
     }

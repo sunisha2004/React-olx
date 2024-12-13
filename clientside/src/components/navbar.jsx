@@ -8,7 +8,7 @@ import {useState } from 'react';
 // import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
-const Nav = ({user}) => {
+const Nav = ({user,setFilter}) => {
 
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +27,13 @@ const Nav = ({user}) => {
   const profilehandle = () => {
     navigate('/profile'); // Correctly use navigate
   };
+  const sellhandle=()=>{
+    navigate('/sell')
+  }
 
+  const Enquiryhandle=()=>{
+    navigate('/enqPostPage')
+  }
   return (
     <nav className="navbar">
       {/* Left Section */}
@@ -46,8 +52,10 @@ const Nav = ({user}) => {
           type="text"
           className="search-input"
           placeholder="Find Cars, Mobile Phones and more..."
+          onChange={(e)=>setFilter(e.target.value)}
         />
         <button className="search-button">
+
           <img className='search-icon' src={img2} alt="search" />
         </button>
       </div>
@@ -67,13 +75,16 @@ const Nav = ({user}) => {
             <button className="dropdown-item" onClick={profilehandle}>
               Profile
             </button>
+            <button className="dropdown-item" onClick={Enquiryhandle}>
+              Enquiries
+            </button>
             <button className="dropdown-item" onClick={logouthandle}>
               Logout
             </button>
             
           </div>
         )}
-        <button className="sell-button">
+        <button className="sell-button" onClick={sellhandle}>
       + SELL
     </button>
       </div>

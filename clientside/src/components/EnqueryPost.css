@@ -1,0 +1,79 @@
+.enquiry-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .enquiry-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-group textarea,
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .bttt {
+    width: 100%;
+    padding: 10px;
+    background-color: #0a3d53;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .bttt:hover {
+    background-color: #0a3d53;
+  }
+  
+  /* .seller-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #d9534f;
+  }
+  
+  .seller-note:contains("does agree") {
+    color: #5cb85c;
+  } */
+
+  .seller-note {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .seller-note.agree {
+    color: #5cb85c;
+  }
+  
+  .seller-note.disagree {
+    color: #d9534f;
+  }
+  

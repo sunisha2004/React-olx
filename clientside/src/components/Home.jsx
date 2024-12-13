@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Home.css";
 
-const Home = ({ setUser }) => {
+const Home = ({ setUser ,filter}) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([])
   const token = localStorage.getItem("token")
@@ -59,7 +59,12 @@ const Home = ({ setUser }) => {
         {posts.length === 0 ? (
           <div className="no-posts-message">No posts available</div>
         ) : (
-          posts.map((post) => (
+          posts
+          .filter((i) =>
+            i.category?.toLowerCase().includes(filter?.toLowerCase() || "")
+)
+          
+          .map((post) => (
             <Link key={post._id} to={`/viewPost/${post._id}`} className="post-link">
               <div className="post-card">
                 {post.images && post.images.length > 0 && (

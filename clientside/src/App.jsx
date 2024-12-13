@@ -12,17 +12,19 @@ import Sell from './components/Sell';
 import ViewUserPost from './components/ViewUserPost';
 import ViewPost from './components/ViewPost'
 import EditPost from './components/EditPost';
+import EnqPage from './components/EnqueryPost';
 
 function App() {
   const [user, setUser] = useState("");
+  const [filter, setFilter] = useState("");
   console.log("app " + user);
 
   return (
     <>
       <Router>
-        {user && <Navbar user={user} />}
+        {user && <Navbar user={user} setFilter={setFilter} />}
         <Routes>
-          <Route path="/" element={<Home setUser={setUser} />} /> 
+          <Route path="/" element={<Home setUser={setUser} filter={filter}/>} /> 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verify" element={<Verify />} />
@@ -33,6 +35,7 @@ function App() {
           <Route path='/viewUserPost/:id' element={<ViewUserPost/>} />
           <Route path='/viewPost/:id' element={<ViewPost/>} />
           <Route path='/editPost/:id' element={<EditPost/>} />
+          <Route path='/enqPostPage' element={<EnqPage/>} />
 
 
 
